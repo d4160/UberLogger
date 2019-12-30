@@ -1,0 +1,18 @@
+{
+    "name": "UberLogger.LogChannels.Editor",
+    "references": [
+        "GUID:375194419deac8747b11656fa5b6a6ca",
+        "GUID:543da58d25c20bd498c6343050a3e281"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

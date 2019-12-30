@@ -1,3 +1,4 @@
+#if UNITY_EDITOR
 using UnityEngine;
 using UnityEditor;
 using System.Collections.Generic;
@@ -18,6 +19,15 @@ public class UberLoggerEditorWindow : EditorWindow, UberLoggerEditor.ILoggerWind
     {
         Init();
     }
+
+    //[MenuItem("Tools/Test OpenFile")]
+    //static public void TestOpenFile()
+    //{
+    //    if (UnityEditorInternal.InternalEditorUtility.TryOpenErrorFileFromConsole("Assets/__Project Assets/4_Levels/_Scripts/MenuLevelLauncher.cs", 1))
+    //    {
+    //        Debug.Log($"Opened with Text editor: true");
+    //    }
+    //}
 
     static public void Init()
     {
@@ -744,12 +754,15 @@ public class UberLoggerEditorWindow : EditorWindow, UberLoggerEditor.ILoggerWind
     {
         if (frame.FileName != null)
         {
-            var osFileName = UberLogger.Logger.ConvertDirectorySeparatorsFromUnityToOS(frame.FileName);
-            var filename = System.IO.Path.Combine(System.IO.Directory.GetCurrentDirectory(), osFileName);
-            if (System.IO.File.Exists(filename))
+            //var osFileName = UberLogger.Logger.ConvertDirectorySeparatorsFromUnityToOS(frame.FileName);
+            var filename = frame.FileName.Replace($"{System.IO.Directory.GetCurrentDirectory()}\\", "");
+
+            if (System.IO.File.Exists(frame.FileName))
             {
-                if (UnityEditorInternal.InternalEditorUtility.OpenFileAtLineExternal(filename, frame.LineNumber))
+                if (UnityEditorInternal.InternalEditorUtility.TryOpenErrorFileFromConsole(filename, frame.LineNumber))
+                {
                     return true;
+                }
             }
         }
 
@@ -981,3 +994,4 @@ public class UberLoggerEditorWindow : EditorWindow, UberLoggerEditor.ILoggerWind
     float CollapseBadgeMaxWidth = 0;
 
 }
+#endif

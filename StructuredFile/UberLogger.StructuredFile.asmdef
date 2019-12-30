@@ -1,0 +1,15 @@
+{
+    "name": "UberLogger.StructuredFile",
+    "references": [
+        "GUID:375194419deac8747b11656fa5b6a6ca"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
